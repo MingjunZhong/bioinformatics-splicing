@@ -41,25 +41,14 @@ def load_gene_dataset():
     data = genedata['genedata']
     genedata.close()
     return data
-
-# ################## Download and prepare the MNIST dataset ##################
-# This is just some way of getting the MNIST dataset from an online location
-# and loading it into numpy arrays. It doesn't involve Lasagne at all.
-
-def load_dataset():
-    # We first define a download function, supporting both Python 2 and 3.
-    if sys.version_info[0] == 2:
-        from urllib import urlretrieve
-    else:
-        from urllib.request import urlretrieve
-    
+   
 # ##################### Build the neural network model #######################
-# This script supports three types of models. For each one, we define a
+# This script defines a
 # function that takes a Theano variable representing the input and returns
 # the output layer of a neural network model built in Lasagne.
    
 def build_cnn(input_var=None, lengthOfInputVector=None):
-    # As a third model, we'll create a CNN of two convolution + pooling stages
+    # We'll create a CNN of two convolution + pooling stages
     # and a fully-connected hidden layer in front of the output layer.
 
     # Input layer, as usual:
@@ -329,7 +318,7 @@ def main():
 
 if __name__ == '__main__':
     if ('--help' in sys.argv) or ('-h' in sys.argv):
-        print("Trains a neural network on MNIST using Lasagne.")
+        print("Trains a neural network on gene data using Lasagne.")
         print("Usage: %s [MODEL [EPOCHS]]" % sys.argv[0])
         print()
         print("MODEL: 'mlp' for a simple Multi-Layer Perceptron (MLP),")
